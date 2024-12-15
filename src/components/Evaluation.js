@@ -6,7 +6,7 @@ const Evaluation = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios('/api/rivers/');
+            const result = await axios('http://127.0.0.1:8000/api/rivers/');
             setRivers(result.data);
         };
         fetchData();
