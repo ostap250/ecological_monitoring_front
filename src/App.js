@@ -1,31 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes,  } from 'react-router-dom';
+
 import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './components/Home';
-import Evaluation from './components/Evaluation';
-import Methodology from './components/Methodology';
-import Contacts from './components/Contacts';
-import Reports from './components/Reports';
-import SensorDashboard from './components/SensorDashboard';
+import Home from "./components/Home";
+import Contacts from "./components/Contacts";
+import WaterEvaluation from "./components/WaterEvaluation";
+import Reports from "./components/Reports";
+import AboutUs from "./components/AboutUs";
+
 
 const App = () => {
     return (
-        <Router>
-            <Header />
-            <main>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/evaluation" component={Evaluation} />
-                    <Route path="/methodology" component={Methodology} />
-                    <Route path="/contacts" component={Contacts} />
-                    <Route path="/reports" component={Reports} />
-                    <Route path="/sensor-dashboard" component={SensorDashboard} />
-                </Switch>
-            </main>
-            <Footer />
-        </Router>
+        <div className="flex flex-col h-screen">
+            <Router>
+                <Header />
+                <main className="flex-grow">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about-us" element={<AboutUs />} />
+                        <Route path="/contacts" element={<Contacts />} />
+                        <Route path="/water-evaluation" element={<WaterEvaluation />} />
+                        <Route path="/reports" element={<Reports />} />
+                    </Routes>
+                </main>
+            </Router>
+        </div>
     );
-}
-
+};
 export default App;
